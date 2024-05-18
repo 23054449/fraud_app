@@ -1,0 +1,6 @@
+streamlit
+pandas
+pickle
+numpy
+os
+scikit==1.2.2
