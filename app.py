@@ -18,6 +18,14 @@ home_directory = str(Path.home())
 # Specify the Downloads folder path
 downloads_directory = os.path.join(home_directory, "Downloads")
 
+# Define the file path where you want to save the CSV
+file_path = "/mount/src/fraud_app/output/predictions.csv"
+
+# Ensure the directory exists
+directory = os.path.dirname(file_path)
+if not os.path.exists(directory):
+    os.makedirs(directory)
+
 # Title header
 st.title("Fraud Detection App")
 
@@ -110,6 +118,6 @@ with data_container1:
         # Button to save the new_data to Excel
         if st.button("Save Predictions to Excel"):
             # Construct the full file path for the Downloads folder
-            file_path = os.path.join(downloads_directory, "predicted_data.csv")
+            #file_path = os.path.join(downloads_directory, "predicted_data.csv")
             st.session_state.data.assign(Predicted=st.session_state.new_data).to_csv(file_path, index=False)
             st.write("Predicted data saved to 'predicted_data.csv'")
