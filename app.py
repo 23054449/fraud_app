@@ -3,7 +3,6 @@ import pandas as pd
 import pickle
 import numpy as np
 import os
-from pathlib import Path
 from io import BytesIO
 
 model1 = pickle.load(open('LR_over.pkl', 'rb'))
@@ -11,21 +10,6 @@ model2 = pickle.load(open('RF_norm.pkl', 'rb'))
 model3 = pickle.load(open('KNN_under.pkl', 'rb'))
 model4 = pickle.load(open('NB_over.pkl', 'rb'))
 model5 = pickle.load(open('DT_norm.pkl', 'rb'))
-
-
-# Get the user's home directory
-home_directory = str(Path.home())
-
-# Specify the Downloads folder path
-downloads_directory = os.path.join(home_directory, "Downloads")
-
-# Define the file path where you want to save the CSV
-file_path = "/mount/src/fraud_app/output/predictions.csv"
-
-# Ensure the directory exists
-directory = os.path.dirname(file_path)
-if not os.path.exists(directory):
-    os.makedirs(directory)
 
 # Title header
 st.title("Fraud Detection App")
