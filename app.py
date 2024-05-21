@@ -4,6 +4,7 @@ import pickle
 import numpy as np
 import os
 from pathlib import Path
+from io import BytesIO
 
 model1 = pickle.load(open('LR_over.pkl', 'rb'))
 model2 = pickle.load(open('RF_norm.pkl', 'rb'))
@@ -109,15 +110,17 @@ data_container1 = st.container()
 with data_container1:
     if st.session_state.new_data is not None:
         st.write("Here are the predicted results")
-        st.write(st.session_state.data.assign(Predicted=st.session_state.new_data))
-        # Display the total number of fraud rows
+        results_df = st.session_state.data.assign(Predicted=st.session_state.new_data)
+        st.write(results_df)
         # Calculate the number of fraud rows
         fraud_rows = np.sum(st.session_state.new_data != 0)
         st.write(f"Number of fraud transactions: {fraud_rows}")
 
-        # Button to save the new_data to Excel
-        if st.button("Save Predictions to Excel"):
-            # Construct the full file path for the Downloads folder
-            #file_path = os.path.join(downloads_directory, "predicted_data.csv")
-            st.session_state.data.assign(Predicted=st.session_state.new_data).to_csv(file_path, index=False)
-            st.write("Predicted data saved to 'predicted_data.csv'")
+        # Convert the DataFrame to CSV and create a download button
+        csv = results_df.to_csv(index=False).encode()
+        st.download_button(
+            label="Download Predictions as CSV",
+            data=csv,
+            file_name='predictions.csv',
+            mime='text/csv',
+        )
