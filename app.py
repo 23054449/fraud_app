@@ -5,10 +5,10 @@ import numpy as np
 import os
 from pathlib import Path
 
-model1 = pickle.load(open('LR_norm.pkl', 'rb'))
+model1 = pickle.load(open('LR_over.pkl', 'rb'))
 model2 = pickle.load(open('RF_norm.pkl', 'rb'))
-model3 = pickle.load(open('KNN_norm.pkl', 'rb'))
-model4 = pickle.load(open('NB_norm.pkl', 'rb'))
+model3 = pickle.load(open('KNN_under.pkl', 'rb'))
+model4 = pickle.load(open('NB_over.pkl', 'rb'))
 model5 = pickle.load(open('DT_norm.pkl', 'rb'))
 
 
