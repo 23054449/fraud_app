@@ -4,12 +4,42 @@ import pickle
 import numpy as np
 import os
 from io import BytesIO
+import requests
 
-model1 = pickle.load(open('LR_over.pkl', 'rb'))
-model2 = pickle.load(open('RF_norm.pkl', 'rb'))
-model3 = pickle.load(open('KNN_under.pkl', 'rb'))
-model4 = pickle.load(open('NB_over.pkl', 'rb'))
-model5 = pickle.load(open('DT_norm.pkl', 'rb'))
+def download_and_load_model(url, model_path):
+    if not os.path.exists(model_path):
+        response = requests.get(url)
+        with open(model_path, 'wb') as f:
+            f.write(response.content)
+    with open(model_path, 'rb') as f:
+        model = pickle.load(f)
+    return model
+
+model1_url = 'https://drive.google.com/uc?export=download&id=1-H7qGZvWYJPl_Zd2DFLd3T8EHxGIlRem'
+model2_url = 'https://drive.google.com/uc?export=download&id=1-7R1OEDAa3Le9t8vnTZ76V4naCXxLra6'
+model3_url = 'https://drive.google.com/uc?export=download&id=1-S-MlnEvsfDRBXBAIyXLSYwaJ9-Zqbq3'
+model4_url = 'https://drive.google.com/uc?export=download&id=1-DC2SGX_KAN7Q8GScvMAyoOm5rzhwXmy'
+model5_url = 'https://drive.google.com/uc?export=download&id=1-6uaVpwkZjJWmyzBwH9ZtbgD1gdtaPVi'
+
+# Paths to save the downloaded models
+model1_path = 'LR_over.pkl'
+model2_path = 'RF_norm.pkl'
+model3_path = 'KNN_under.pkl'
+model4_path = 'NB_over.pkl'
+model5_path = 'DT_norm.pkl'
+
+# Download and load the trained models
+model1 = download_and_load_model(model1_url, model1_path)
+model2 = download_and_load_model(model2_url, model2_path)
+model3 = download_and_load_model(model3_url, model3_path)
+model4 = download_and_load_model(model4_url, model4_path)
+model5 = download_and_load_model(model5_url, model5_path)
+
+# model1 = pickle.load(open('LR_over.pkl', 'rb'))
+# model2 = pickle.load(open('RF_norm.pkl', 'rb'))
+# model3 = pickle.load(open('KNN_under.pkl', 'rb'))
+# model4 = pickle.load(open('NB_over.pkl', 'rb'))
+# model5 = pickle.load(open('DT_norm.pkl', 'rb'))
 
 # Title header
 st.title("Fraud Detection App")
