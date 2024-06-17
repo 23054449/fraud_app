@@ -5,12 +5,11 @@ import numpy as np
 import os
 from io import BytesIO
 import requests
+import gdown
 
 def download_and_load_model(url, model_path):
     if not os.path.exists(model_path):
-        response = requests.get(url)
-        with open(model_path, 'wb') as f:
-            f.write(response.content)
+        gdown.download(url, model_path, quiet=False)
     with open(model_path, 'rb') as f:
         model = pickle.load(f)
     return model
