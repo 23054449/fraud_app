@@ -5,18 +5,20 @@ import numpy as np
 import os
 from io import BytesIO
 import requests
-import gdown
 
 def download_and_load_model(url, model_path):
     if not os.path.exists(model_path):
-        gdown.download(url, model_path, quiet=False)
+        response = requests.get(url)
+        with open(model_path, 'wb') as f:
+            f.write(response.content)
     with open(model_path, 'rb') as f:
         model = pickle.load(f)
     return model
 
 model1_url = 'https://drive.google.com/uc?export=download&id=1-H7qGZvWYJPl_Zd2DFLd3T8EHxGIlRem'
 model2_url = 'https://drive.google.com/uc?export=download&id=1-7R1OEDAa3Le9t8vnTZ76V4naCXxLra6'
-model3_url = 'https://drive.google.com/uc?export=download&id=1-S-MlnEvsfDRBXBAIyXLSYwaJ9-Zqbq3'
+# model3_url = 'https://drive.google.com/uc?export=download&id=1-S-MlnEvsfDRBXBAIyXLSYwaJ9-Zqbq3'
+model3_url = 'https://drive.usercontent.google.com/download?id=1-S-MlnEvsfDRBXBAIyXLSYwaJ9-Zqbq3&export=download&authuser=0&confirm=t&uuid=ed7dd52c-85cf-4506-8fe7-b60c5b60a7c1&at=APZUnTXWEe2KS8oqY386V8byoDPv%3A1718625162199'
 model4_url = 'https://drive.google.com/uc?export=download&id=1-DC2SGX_KAN7Q8GScvMAyoOm5rzhwXmy'
 model5_url = 'https://drive.google.com/uc?export=download&id=1-6uaVpwkZjJWmyzBwH9ZtbgD1gdtaPVi'
 
