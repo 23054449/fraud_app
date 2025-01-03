@@ -15,11 +15,11 @@ def download_and_load_model(url, model_path):
         model = pickle.load(f)
     return model
 
-model1_url = 'https://365umedumy-my.sharepoint.com/:u:/g/personal/23054449_siswa365_um_edu_my/EShMJ677umlGqocHzt7p1r0B2WwZIpoh42OAc057YGwbQg?download=1'
-model2_url = 'https://365umedumy-my.sharepoint.com/:u:/g/personal/23054449_siswa365_um_edu_my/Eanm5R6inIhPs8CVWe0-nqsBQMBAYjIC0Y0KR6bJY6eivA?download=1'
-model3_url = 'https://365umedumy-my.sharepoint.com/:u:/g/personal/23054449_siswa365_um_edu_my/EXgqbiinIg1AlE8Wkr9alS0Bt-GyqUGtxQ65rWULCQyC-g?download=1'
-model4_url = 'https://365umedumy-my.sharepoint.com/:u:/g/personal/23054449_siswa365_um_edu_my/EVbmCs9fOOBCijpZpa9SpwwBcqelwNniXHd4P9UCOpXOUQ?download=1'
-model5_url = 'https://365umedumy-my.sharepoint.com/:u:/g/personal/23054449_siswa365_um_edu_my/ESW6-VxL5mtKjnD79oszbxYBr80_2EzsVHR4jgGosAhzJQ?download=1'
+model1_url = 'https://365umedumy-my.sharepoint.com/:u:/g/personal/23054449_siswa365_um_edu_my/EZwGoNN5EI9LodujFp06Y7cBbgG0t_6dPJHFn38wmyBYug?download=1'
+model2_url = 'https://365umedumy-my.sharepoint.com/:u:/g/personal/23054449_siswa365_um_edu_my/EcCjMcZ9L8ZJk8WtAofkSb0BTzhaYWLGpg2mMsNVSuJMsg?download=1'
+model3_url = 'https://365umedumy-my.sharepoint.com/:u:/g/personal/23054449_siswa365_um_edu_my/EWjxaU4YdkpPs0zEnOCeKKAB4yvePEjLv_K0Kg-XPGr9oA?download=1'
+model4_url = 'https://365umedumy-my.sharepoint.com/:u:/g/personal/23054449_siswa365_um_edu_my/EYe0V9TVXqVBiHEkPbkSoDEBRUO1h_22FkS-59zv4_0OYQ?download=1'
+model5_url = 'https://365umedumy-my.sharepoint.com/:u:/g/personal/23054449_siswa365_um_edu_my/Ecl2SnDwjiRJi1pV7u9YXUwBVWQqBYbPrMAZjece2OGnFQ?download=1'
 
 # Paths to save the downloaded models
 model1_path = 'LR_over.pkl'
